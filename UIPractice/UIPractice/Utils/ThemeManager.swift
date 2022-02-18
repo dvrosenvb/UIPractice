@@ -13,14 +13,15 @@ public struct ThemeManager {
     
     //MARK: Values
     public static let cornerRadius_btn = 14.0
+    public static let cornerRadius_btn_circle = 24.0
     public static let cornerRadius = 18.0
     public static let txt_sec_001 = "Small table for working at living room"
     public static let txt_sec_001_01 = "75%"
     public static let txt_sec_001_02 = "Color"
-    public static let txt_sec_002_01 = " "
-    public static let txt_sec_002_02 = " "
-    public static let txt_sec_003_01 = " "
-    public static let txt_sec_003_02 = " "
+    public static let txt_sec_002_01 = "12 KwH"
+    public static let txt_sec_002_02 = "8 hours"
+    public static let txt_sec_003_01 = "Winter morning"
+    public static let txt_sec_003_02 = "Theme"
     public static let txt_sec_004_01 = " "
     public static let txt_sec_004_02 = " "
     public static let txt_sec_005 = " "
@@ -39,6 +40,7 @@ public struct ThemeManager {
     public static let colorGraySoft = #colorLiteral(red: 0.9568627451, green: 0.9568627451, blue: 0.9725490196, alpha: 1)
     public static let colorDarkBase = #colorLiteral(red: 0.168627451, green: 0.1725490196, blue: 0.2352941176, alpha: 1)
     public static let colorDarkSof = #colorLiteral(red: 0.2584832702, green: 0.2584832702, blue: 0.2584832702, alpha: 1)
+    public static let colorSofAlphaDark = #colorLiteral(red: 0.2584832702, green: 0.2584832702, blue: 0.2584832702, alpha: 0.07760761589)
     
     public static func RegularFont(_ ofSize: CGFloat) -> UIFont {
         return UIFont(name: "Manrope", size: ofSize) ?? UIFont.systemFont(ofSize: ofSize, weight: .regular)
@@ -48,5 +50,24 @@ public struct ThemeManager {
         return UIFont.italicSystemFont(ofSize: ofSize)
     }
     
+    
+    public static func setGradient(_ view:UIView){
+        lazy var gradient: CAGradientLayer = {
+            let gradient = CAGradientLayer()
+            gradient.type = .axial
+            gradient.colors = [
+                UIColor.red.cgColor,
+                UIColor.purple.cgColor,
+                UIColor.cyan.cgColor
+            ]
+            gradient.locations = [0, 0.25, 1]
+            return gradient
+        }()
+
+        gradient.frame = view.bounds
+        view.layer.addSublayer(gradient)
+        
+        
+    }
     
 }
